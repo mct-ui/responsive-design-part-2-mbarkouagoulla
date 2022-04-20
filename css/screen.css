@@ -195,6 +195,7 @@ a:focus {
     padding: 48px 24px 24px;
 }
 
+
 @media (min-width: 768px) {
     .o-row {
         padding-left: 48px;
@@ -212,6 +213,14 @@ a:focus {
     }
 }
 
+.o-row--neutral-x-light{
+    background-color: #f7f7f7;
+}
+
+.o-row--gradient-1{
+    background: linear-gradient(to top right, #3887F7 , #5051DB);
+    color: white;
+}
 /*
     Objects: Container
     ---
@@ -353,7 +362,8 @@ a:focus {
 }
 
 .o-section {
-    display: flow-root;
+    display: flex;
+    flex-direction: column;
 }
 
 .o-section + .o-section {
@@ -478,11 +488,215 @@ a:focus {
     }
 }
 
+/*
+    Component: Lead
+    ---
+    Lead type treatments to style everything that differs from standard typography elements
+*/
 
+.c-lead {
+    font-weight: 200;
+}
+
+.c-lead--lg {
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.c-lead--xl {
+    font-size: 26px;
+    line-height: 32px;
+}
+
+.c-lead--xxl {
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.c-lead--xxxl {
+    font-size: 36px;
+    line-height: 48px;
+}
+
+@media (min-width: 768px) {
+    .c-lead--lg {
+        font-size: 23px;
+        line-height: 32px;
+    }
+
+    .c-lead--xl {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .c-lead--xxl {
+        font-size: 41px;
+        line-height: 48px;
+    }
+
+    .c-lead--xxxl {
+        font-size: 52px;
+        line-height: 64px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .c-lead--lg {
+        font-size: 26px;
+        line-height: 36px;
+    }
+
+    .c-lead--xl {
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .c-lead--xxl {
+        font-size: 52px;
+        line-height: 64px;
+    }
+
+    .c-lead--xxxl {
+        font-size: 66px;
+        line-height: 72px;
+    }
+}
+
+
+/*
+    Component: footer
+    ---
+    Main footer of the website
+*/
+
+.c-footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.c-footer__logo {
+    width: 100%;
+}
+
+.c-footer__nav {
+    width: 50%;
+}
+
+@media (min-width: 768px) {
+    .c-footer {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .c-footer__logo {
+        display: flex;
+        justify-content: center;
+        padding: 0 12px;
+    }
+
+    .c-footer__nav {
+        width: auto;
+        padding: 0 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-footer {
+        justify-content: space-between;
+    }
+
+    .c-footer__logo {
+        width: auto;
+    }
+
+    .c-footer__logo  + .c-footer__nav {
+        order: -1;
+    }
+
+    .c-footer__nav {
+        padding: 0;
+    }
+}
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+/*
+    Component: CTA link
+    ---
+    Small cta link with custom animation
+*/
 
+.c-link-cta {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    padding: 4px 0;
+    transition: color .175s ease-in;
+}
+
+.c-link-cta,
+.c-link-cta:visited,
+.c-link-cta:active {
+    color: #7373F5;
+}
+
+.c-link-cta::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #7373F5;
+    transform: scaleX(.5);
+    transform-origin: left;
+    transition-property: transform, background-color;
+    transition-duration: 0.175s;
+    transition-timing-function: ease-in ;
+}
+
+.c-link-cta:hover {
+    color: #3E3EA8;
+
+}
+
+.c-link-cta:hover::after {
+    transform: scaleX(1);
+    background-color: #3e3ea8;
+}
+
+
+.c-link-cta--inverse,
+.c-link-cta--inverse:visited,
+.c-link-cta--inverse:active{
+    color: white;
+}
+
+.c-link-cta--inverse::after ,
+.c-link-cta--inverse:hover::after {
+    background-color: white;
+}
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-primary-light {
+    color: #7373f5 !important;
+}
+
+.u-color-primary-base {
+    color: #5051DB !important;
+}
+
+.u-color-primary-dark {
+    color: #3E3EA8 !important;
+}
 /*
     Utilities: spacing
     ---
